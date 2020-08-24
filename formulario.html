@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link  href="dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/main-page.css">
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <link rel="icon" href="Images/icon.png" type="image/x-icon" />
+    <title>TecFind - Cadastro</title>
+
+        <script type="text/javascript" src="javascrito.js"></script>
+
+    </head>
+
+    <body>
+        
+  <form class="form-signin" id="cad" method="post" action="#" required>
+
+    <h1 class="h1-large">Dados pessoais</h1>
+      
+    <label for="inputText" class="sr-only">Nome</label>
+    <input type="text" id="inputText" name="txtnome" class="form-control" maxlength="40" placeholder="Nome" required autofocus />
+    
+    <label for="inputText" class="sr-only">Sobrenome</label>
+    <input type="text" id="inputText" name="txtsobrenome" class="form-control" maxlength="30" placeholder="Sobrenome" required autofocus />
+      
+    <label for="inputDate" class="sr-only">Data</label>
+    <input type="date" id="inputDate" name="txtdata_nasc" class="form-control" placeholder="Data de Nascimento" required>
+    
+        <label for="inputText" class="sr-only">CPF</label>
+    <input type="text" id="cpf1" name="txtCPF" class="form-control" maxlength="11" placeholder="CPF" required/>
+
+    <h1 class="h1-large">Dados para Contato</h1>
+    
+    <label for="inputText" class="sr-only">DDD</label>
+    <input type="text" name="txtDDD" class="form-control" maxlength="2" placeholder="DDD (Ex: (###))" required/>
+
+      <label for="inputText" class="sr-only">Número de Contato</label><input type="tel" name="txtContato" maxlength="9" placeholder="Número de Contato" class="form-control" required  />
+      <br>
+      <label class="p-small">Tipo de Número de Contato:</label> <label class="radio-inline"><input type="radio" name="rbT" value="Celular" checked />Celular</label>
+    <label class="radio-inline"><input type="radio" name="rbT" value="Telefone"/>Telefone</label>
+      <br>
+      <br>
+
+      <label for="inputText" class="sr-only">E-mail</label>
+      <input type="email" name="txtEmail1" maxlength="50" id="Email1" class="form-control" placeholder="Endereço de E-mail" required />
+
+    <label for="inputText" class="sr-only">Confirmação do E-mail</label>
+      <input type="email" name="txtEmail2" maxlength="50" id="Email2" class="form-control" placeholder="Confirmar Endereço de E-mail" required />
+
+    <h1 class="h1-large">Dados do Endereço</h1>
+    
+    <label for="inputText" class="sr-only">Logradouro</label>
+    <input type="text" name="txtRua" maxlength="50" placeholder="Logradouro" class="form-control" required />
+    
+    <label for="inputText" class="sr-only">Bairro</label>
+    <input type="text" name="txtBairro" maxlength="35" placeholder="Bairro" class="form-control" required />
+    
+    <label for="inputText" class="sr-only">Cidade</label>
+    <input type="text" name="txtCidade" maxlength="25" placeholder="Cidade" class="form-control" required />
+
+    <br>
+
+    <div class="form-group">
+  <label class="p-small" for="sel1">Estado:</label>
+    <select class="form-control" id="sel1" name="cbEstado" required>
+
+        <option value="">Selecione...</option>    
+        <option value="AC">Acre</option>    
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="CE">Ceará</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+    </select>
+      </div>
+    <br>
+    
+    <label for="inputText" class="sr-only">Número</label>
+    <input type="text" name="txtNumero" maxlength="7" placeholder="Número" class="form-control" required />
+
+    <label for="inputText" class="sr-only">Bairro</label>
+    <input type="text" name="txtCep" placeholder="CEP(Ex: #####-###)" class="form-control" maxlength="8" required />
+
+    <label for="inputText" class="sr-only">Complemento</label>
+        <input type="text" name="txtComplemento" maxlength="40" placeholder="Complemento" class="form-control" />
+
+    <h1 class="h1-large">Dados da Conta</h1>
+    
+    <label for="inputText" class="sr-only">Complemento</label>
+    <input type="text" name="txtLogin" required maxlength="20" placeholder="Nome de Usuário" class="form-control"  />
+    
+    <label for="inputText" class="sr-only">Senha</label>
+    <input type="password" name="txtsenha" required maxlength="20" placeholder="Senha" class="form-control" />
+
+    <input type="password" name="txtCsenha" required maxlength="20" placeholder="Confirmação de Senha" class="form-control" />
+
+    <br>
+    
+    <label class="p-small">Tipo de Usuário:</label>
+    <label class="radio-inline"><input type="radio" name="rb" value="Usuario" checked />Cliente</label>
+    <label class="radio-inline"><input type="radio" name="rb" value="Tecnico"/>Técnico</label>
+
+    <br>
+    <br>
+    <center>
+    <button type="button" class="btn btn-primary btn-lg p-large" id="btn1" onclick='validarFormulario(this.form)'>Cadastrar</button>
+    </center>
+</form>
+    </body>
+</html>

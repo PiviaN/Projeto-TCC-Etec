@@ -1,0 +1,131 @@
+html,body{
+    height: 100%;
+    background-color: white;
+}
+
+.container{
+    min-height: 100%;
+    overflow: auto;
+}
+
+
+.custom{
+
+    background-color: dimgray;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+
+}
+
+.vcenter {
+    vertical-align:middle;
+}
+
+.p-small{
+    font-family:Corbel;
+    font-size:20px;
+}
+
+.p-large{
+    font-family:Corbel;
+    font-size:25px;
+}
+
+.h1-large{
+    font-family:Corbel;
+    font-size:30px;
+    font-weight: bold;
+}
+
+.titulo{
+    color:cornflowerblue;
+    font-weight:bold;
+    font-size:30px;
+}
+
+.subtitulo{
+    color:black;
+}
+
+.texto{
+    color:black;
+}
+
+
+.h1-small{
+    font-family:Corbel;
+    font-size:28px;
+    font-weight: bold;
+}
+
+.sombreado{
+    background-color:white;
+    box-shadow: 2px 2px 2px 2px grey;
+    border-radius: 0;
+}
+
+.rounded{
+    border-radius: 360px;
+    border: 1px solid white;
+}
+
+.txtmensagens{
+    border-radius: 4px;
+}
+
+.fundo{
+
+    background-color: black;
+    border: 0;
+    border-radius: 0;
+}
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 80px;
+    height: 80px;
+    padding-top: 0;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: white;
+}
+
+.nav.navbar-nav.navbar-left li a {
+    color: white;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.active a{
+    color: black !important;
+    background-color: white !important;;
+}
+
+.botao{
+    background-color: black;
+    border: 0;
+    border-radius: 10px;
+}
+
+.well{
+    border-radius: 0;
+}
+
+.visualizado
+{
+    width: 800px; 
+    height: 100px;
+    background-color: white;               
+}
+.naovisualizado
+{
+    width: 800px; 
+    height: 100px;
+    background-color: lightgrey;               
+}

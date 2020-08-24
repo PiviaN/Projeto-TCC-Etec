@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link  href="dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/main-page.css">
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <link rel="icon" href="Images/icon.png" type="image/x-icon" />
+    <title>TecFind - Cadastro</title>
+    </head>
+
+<body class="body">
+    
+     <nav class="navbar navbar-default">
+        
+        <div class="navbar-header">
+            
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-principal" aria-expanded="false">
+            
+            <span class="sr-only">Alternar Navegação</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+                
+            </button>
+            
+            <a href="index.html" class="navbar-brand p-small">TecFind</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-principal">
+                
+                <ul class="nav navbar-nav">
+                <li class="p-small"><a href="index.html">Home</a></li>
+                <li class="active p-small"><a href="sign-up-form.html">Cadastro</a></li>
+                <li class="p-small"><a href="#">Sobre Nós</a></li>
+                </ul>
+                
+            </div>
+       
+    
+    </nav>
+        
+    
+    
+    <script type="text/javascript">
+                            function muitoCurto(campo, nome, tamanho){
+   if(campo.value.length < tamanho){
+      alert("O conteúdo do campo '" + nome
+      + "' deve ter pelo menos " + tamanho + " caracteres."
+      + " Por favor, preencha-o corretamente.");
+      return false;
+   }
+   return true;
+}
+
+function tamanhoErrado(campo, nome, tamanho){
+    if(campo.value.length < tamanho){
+       alert("O conteúdo do campo '" + nome
+       + "' deve ter exatamente " + tamanho + " caracteres. "
+       + "Por favor, preencha-o corretamente.");
+        return false;
+    }
+    return true;
+}
+
+function naoNumerico(campo, nome){
+    if(isNaN(campo.value)){
+       alert("Digite somente números no campo '" + nome + "', por favor.");
+        return false;
+    }
+    return true;
+}
+
+function diferentes(campo1, nome1, campo2, nome2){
+    if(campo1.value !== campo2.value){
+       alert("Os campos '" + nome1 + "' e '" + nome2 + "' devem ser iguais.");
+       return false;
+    }
+    return true;
+}
+
+function letras(){
+   tecla = event.keyCode;
+   if(tecla >= 48 && tecla <= 57) return false;
+   return true;
+}
+
+function validarFormulario(cad){
+
+    if(!muitoCurto(cad.txtnome, 'Nome', 2)) return;
+    if(!muitoCurto(cad.txtsobrenome, 'Sobrenome', 2)) return;
+    if(!validanome(cad.txtnome.value)) return;
+    if(!validasobrenome(cad.txtsobrenome.value)) return;  
+    if(cad.txtdata_nasc.value.length !== 10){
+        alert("Formato de 'data de nascimento' inválido."
+        + " Por favor, preencha-o corretamente.");
+        return;
+    }
+
+      // valida ano
+    var data_ano = cad.txtdata_nasc.value;
+    var separa = ~data_ano.indexOf("/") ? "/" : "-";
+    var data_array = Number(data_ano.split(separa).filter(function(e){
+       return e.length == 4;
+    }));
+
+    var este_ano = (new Date()).getFullYear();
+
+    if(data_array > este_ano-18 || data_array < este_ano-65){
+       alert("É preciso ter 18 anos e menos de 65 anos.");
+       return;
+    }
+
+    if(!tamanhoErrado(cad.txtCPF, 'CPF', 11)) return;
+    if(!naoNumerico(cad.txtCPF, 'CPF')) return;
+    if(!validaCPF(cad.txtCPF.value)){
+        alert("Você digitou um CPF inválido, por favor, insira-o corretamente.");
+        return;  
+    }
+    if(!tamanhoErrado(cad.txtDDD, 'DDD', 2)) return;
+    if(!muitoCurto(cad.txtContato, 'Nº do telefone', 8)) return;
+    if(!muitoCurto(cad.txtEmail1, 'E-mail', 10)) return;
+    if(!muitoCurto(cad.txtRua, 'Logradouro', 3)) return;
+    if(!muitoCurto(cad.txtBairro, 'Bairro', 3)) return;
+    if(!muitoCurto(cad.txtCidade, 'Cidade', 3)) return;
+    if(!cad.cbEstado.value){
+       alert("Escolha o Estado.");
+       return;
+    }
+    if(!muitoCurto(cad.txtNumero, 'Número do endereço', 1)) return;
+    if(!tamanhoErrado(cad.txtCep, 'CEP', 8)) return;
+    if(!muitoCurto(cad.txtLogin, 'Nome de usuário', 7)) return;
+    if(!muitoCurto(cad.txtsenha, 'Senha', 8)) return;
+    if(!muitoCurto(cad.txtCsenha, 'Confirmação da senha', 8)) return;
+    if(!naoNumerico(cad.txtDDD, 'DDD')) return;
+    if(!naoNumerico(cad.txtContato, 'Nº do telefone')) return;
+    if (!naoNumerico(cad.txtNumero, 'Número')) return;
+    if(!naoNumerico(cad.txtCep, 'CEP')) return;
+    if(!diferentes(cad.txtsenha, 'Senha', cad.txtCsenha, 'Confirmação da Senha')) return;
+    if(!diferentes(cad.txtEmail1, 'E-mail', cad.txtEmail2, 'Confirmação de E-mail')) return;
+
+   
+   cad.submit();
+
+}
+function validaCPF(cpf)
+
+  {
+
+    var numeros, digitos, soma, i, resultado, digitos_iguais;
+
+    digitos_iguais = 1;
+
+    if (cpf.length < 11)
+
+          return false;
+
+    for (i = 0; i < cpf.length - 1; i++)
+
+          if (cpf.charAt(i) != cpf.charAt(i + 1))
+
+                {
+
+                digitos_iguais = 0;
+
+                break;
+
+                }
+
+    if (!digitos_iguais)
+
+          {
+
+          numeros = cpf.substring(0,9);
+
+          digitos = cpf.substring(9);
+
+          soma = 0;
+
+          for (i = 10; i > 1; i--)
+
+                soma += numeros.charAt(10 - i) * i;
+
+          resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+          if (resultado != digitos.charAt(0))
+
+                return false;
+
+          numeros = cpf.substring(0,10);
+
+          soma = 0;
+
+          for (i = 11; i > 1; i--)
+
+                soma += numeros.charAt(11 - i) * i;
+
+          resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+          if (resultado != digitos.charAt(1))
+
+                return false;
+
+          return true;
+
+          }
+
+    else
+
+        return false;
+
+}
+
+
+var padrao = /[^a-zà-ú]/gi;
+function validanome(nome) {
+   var valida_nome = nome.match(padrao);
+   if( valida_nome || !nome ){
+      alert("Nome possui caracteres inválidos ou é vazio, por favor, preencha-o corretamente.");
+      return false;
+   }
+   return true;
+}
+var verif = false;
+function validasobrenome(sobrenome) {
+   var valida_sobrenome = sobrenome.match(padrao);
+   if( valida_sobrenome || !sobrenome ){
+      alert("Sobrenome possui caracteres inválidos ou é vazio, por favor, preencha-o corretamente.");
+      return false;
+   }
+    verif = true;
+   return true;
+}
+if(verif == true){
+    window.location = "inserirUsuario.php";
+}
+        </script>
+    </body>
+</html>
